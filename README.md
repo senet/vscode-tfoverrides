@@ -54,7 +54,7 @@ To build the extension locally and create a VSIX package:
 1. Ensure you have Node.js and npm installed
 2. Install vsce if not already installed: `npm install -g @vscode/vsce`
 3. Run the package command: `npx vsce package`
-4. This will generate a `.vsix` file (e.g., `tfoverrides-0.1.2.vsix`) in the project root
+4. This will generate a `.vsix` file (e.g., `tfoverrides-0.1.3.vsix`) in the project root
 5. You can install the VSIX file in VS Code via the Extensions view "Install from VSIX..." option
 
 ## Requirements

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3 - 2025-04-27
+- Updated extension version to 0.1.3
+- Minor fixes and improvements
+- Updated documentation and changelog
+
 ## 0.1.2 - 2025-04-27
 - Updated extension version to 0.1.2
 - Fixed command registration and packaging issues
