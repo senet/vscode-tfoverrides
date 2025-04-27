@@ -35,6 +35,8 @@ The extension specializes in detecting Terraform modules from public GitHub repo
 4. Select variables to override and provide override values
 5. The extension generates provider.tf, main.tf, and overrides.tf files in your workspace
 
+![VSCode Demo](images/vscode-demo.gif)
+
 ## Web Application
 
 For a web-based interface to generate Terraform overrides, visit the [TF Overrides Web App](https://tfoverrides.dev).
