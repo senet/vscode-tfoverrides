@@ -16,7 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
             const repoUrl = await vscode.window.showInputBox({
                 prompt: 'Enter GitHub public Terraform module URL',
                 ignoreFocusOut: true,
-                placeHolder: 'https://github.com/owner/repo'
+                placeHolder: 'https://github.com/terraform-aws-modules/terraform-aws-ec2-instance'
             });
             if (!repoUrl) {
                 vscode.window.showWarningMessage('No URL provided');
