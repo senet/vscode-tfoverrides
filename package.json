@@ -24,7 +24,7 @@
     "commands": [
       {
         "command": "tfoverrides.generate",
-        "title": "Generate overrides from github Terraform module"
+        "title": "Generate TF Overrides"
       }
     ]
   },
