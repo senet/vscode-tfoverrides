@@ -130,7 +130,7 @@ function convertGitHubUrlToRaw(url: string): string | null {
     }
 }
 
-function parseTerraformVariables(content: string): TerraformVariable[] {
+export function parseTerraformVariables(content: string): TerraformVariable[] {
     const variableRegex = /variable\s+"([\w-]+)"\s*{([^}]*)}/gs;
     const typeRegex = /type\s*=\s*([^\n]+)/;
     const descriptionRegex = /description\s*=\s*"([^"]*)"/;
