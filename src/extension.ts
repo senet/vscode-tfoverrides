@@ -10,7 +10,7 @@ interface TerraformVariable {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-    let disposable = vscode.commands.registerCommand('terraformOverrideHelper.generateOverrides', async () => {
+    let disposable = vscode.commands.registerCommand('tfoverrides.generate', async () => {
         try {
             // Prompt for GitHub Terraform module URL
             const repoUrl = await vscode.window.showInputBox({
@@ -130,7 +130,7 @@ function convertGitHubUrlToRaw(url: string): string | null {
     }
 }
 
-function parseTerraformVariables(content: string): TerraformVariable[] {
+export function parseTerraformVariables(content: string): TerraformVariable[] {
     const variableRegex = /variable\s+"([\w-]+)"\s*{([^}]*)}/gs;
     const typeRegex = /type\s*=\s*([^\n]+)/;
     const descriptionRegex = /description\s*=\s*"([^"]*)"/;
