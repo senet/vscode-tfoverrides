@@ -1,6 +1,6 @@
 # TF Overrides Generator
 
-A VS Code extension for generating Terraform override files within VSCode.
+A VS Code extension for generating Terraform override files from existing GitHub public Terraform modules.
 
 ## Features
 

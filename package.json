@@ -1,7 +1,7 @@
 {
   "name": "terraform-override-helper",
-  "displayName": "Terraform Override Helper",
-  "description": "VSCode extension to generate Terraform override files from GitLab public Terraform modules",
+  "displayName": "TF Override Generator",
+  "description": "A VS Code extension for generating Terraform override files from existing GitHub public Terraform modules",
   "version": "0.0.2",
   "publisher": "senet",
   "icon": "images/icon.png",
