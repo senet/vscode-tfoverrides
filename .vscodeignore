@@ -1,0 +1,7 @@
+test/
+.gitignore
+*.log
+**/*.ts
+**/tsconfig.json
+!file.ts
+.vscode/

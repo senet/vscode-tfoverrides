@@ -10,7 +10,7 @@ interface TerraformVariable {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-    let disposable = vscode.commands.registerCommand('terraformOverrideHelper.generateOverrides', async () => {
+    let disposable = vscode.commands.registerCommand('tfoverrides.generate', async () => {
         try {
             // Prompt for GitHub Terraform module URL
             const repoUrl = await vscode.window.showInputBox({

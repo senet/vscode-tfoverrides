@@ -1,8 +1,8 @@
 {
-  "name": "terraform-override-helper",
+  "name": "tfoverrides",
   "displayName": "TF Override Generator",
-  "description": "A VS Code extension for generating Terraform override files from existing GitHub public Terraform modules",
-  "version": "0.0.2",
+  "description": "A VS Code extension for generating override files from existing Terraform module repository.",
+  "version": "0.1.2",
   "publisher": "senet",
   "icon": "images/icon.png",
   "repository": {
@@ -17,21 +17,21 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:terraformOverrideHelper.generateOverrides"
+    "onCommand:tfoverrides.generate"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "terraformOverrideHelper.generateOverrides",
-        "title": "Generate Terraform Overrides from GitLab Module"
+        "command": "tfoverrides.generate",
+        "title": "Generate Terraform Overrides from github Terraform module"
       }
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "webpack --mode production",
+    "compile": "webpack --mode production",
+    "watch": "webpack --watch --mode development",
     "pretest": "npm run compile",
     "test": "mocha --require ts-node/register 'test/**/*.test.ts'"
   },
@@ -43,9 +43,12 @@
     "@types/vscode": "^1.99.1",
     "glob": "^10.2.7",
     "mocha": "^10.2.0",
+    "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^4.4.3",
-    "vscode-test": "^1.6.0"
+    "vscode-test": "^1.6.0",
+    "webpack": "^5.99.7",
+    "webpack-cli": "^6.0.1"
   },
   "dependencies": {
     "node-fetch": "^2.6.1",
