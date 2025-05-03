@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4 - 2025-05-02
+- Fixed issue with missing quotes around string override values in generated override files
+- Minor fixes and improvements
+
 ## 0.1.3 - 2025-04-27
 - Updated extension version to 0.1.3
 - Minor fixes and improvements

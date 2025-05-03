@@ -212,7 +212,16 @@ function generateMainFile(repoUrl: string, variables: TerraformVariable[]): stri
 function generateOverrideFileContent(overrides: Map<string, string>): string {
     let content = '';
     overrides.forEach((value, key) => {
-        content += `variable "${key}" {\n  default = ${value}\n}\n\n`;
+        // Add quotes around string values if not already quoted
+        const isNumber = !isNaN(Number(value));
+        const isBoolean = value.toLowerCase() === 'true' || value.toLowerCase() === 'false';
+        let formattedValue = value;
+        if (!isNumber && !isBoolean) {
+            if (!(value.startsWith('"') && value.endsWith('"'))) {
+                formattedValue = `"${value}"`;
+            }
+        }
+        content += `variable "${key}" {\n  default = ${formattedValue}\n}\n\n`;
     });
     return content;
 }
