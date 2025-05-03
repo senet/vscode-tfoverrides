@@ -2,7 +2,7 @@
   "name": "tfoverrides",
   "displayName": "TF Override Generator",
   "description": "A VS Code extension for generating override files from existing Terraform module repository.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "publisher": "senet",
   "icon": "images/icon.png",
   "repository": {
