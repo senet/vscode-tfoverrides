@@ -88,7 +88,7 @@ export function activate(context: vscode.ExtensionContext) {
 
             await vscode.workspace.fs.writeFile(providerFileUri, Buffer.from(providerContent, 'utf8'));
             await vscode.workspace.fs.writeFile(mainFileUri, Buffer.from(mainContent, 'utf8'));
-            await vscode.workspace.fs.writeFile(overrideFileUri, Buffer.from(overrideContent, 'utf8'));
+            await vscode.workspace.fs.writeFile(overrideFileUri, Buffer.from(generateOverrideFileContent(overrides, selectedVariables), 'utf8'));
 
             vscode.window.showInformationMessage(`Terraform files created: provider.tf, main.tf, overrides.tf`);
 
@@ -209,16 +209,22 @@ function generateMainFile(repoUrl: string, variables: TerraformVariable[]): stri
     return mainContent;
 }
 
-function generateOverrideFileContent(overrides: Map<string, string>): string {
+function generateOverrideFileContent(overrides: Map<string, string>, variables: TerraformVariable[]): string {
     let content = '';
     overrides.forEach((value, key) => {
-        // Add quotes around string values if not already quoted
+        const variable = variables.find(v => v.name === key);
         const isNumber = !isNaN(Number(value));
         const isBoolean = value.toLowerCase() === 'true' || value.toLowerCase() === 'false';
         let formattedValue = value;
-        if (!isNumber && !isBoolean) {
-            if (!(value.startsWith('"') && value.endsWith('"'))) {
-                formattedValue = `"${value}"`;
+        if (variable && variable.type) {
+            const typeLower = variable.type.toLowerCase();
+            // Skip quoting for list(string) or map(string)
+            if (typeLower.includes('string') && !typeLower.includes('list(string)') && !typeLower.includes('map(string)')) {
+                if (!isNumber && !isBoolean) {
+                    if (!(value.startsWith('"') && value.endsWith('"'))) {
+                        formattedValue = `"${value}"`;
+                    }
+                }
             }
         }
         content += `variable "${key}" {\n  default = ${formattedValue}\n}\n\n`;
