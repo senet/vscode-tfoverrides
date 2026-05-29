@@ -22,7 +22,7 @@ jobs:
       - name: Publish to VS Code Marketplace
         run: npx vsce publish --pat ${{ secrets.VSCE_PAT }}
       - name: Upload VSIX as release artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: vsix
           path: '*.vsix'
