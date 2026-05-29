@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.5 - 2026-05-30
+- Extracted shared module (src/shared.ts) — pure types and functions with no vscode dependency
+- Fixed sidebarView type-aware formatting: string values now correctly quoted in overrides
+- Added main→master branch fallback when fetching variables.tf from GitHub
+- Removed duplicate code across extension.ts and sidebarView.ts
+- Expanded test suite from 1 to 21 tests
+- Added GitHub Actions CI and automated publish on version tags
+- Moved vsce to devDependencies
+
 ## 0.1.4 - 2025-05-02
 - Fixed issue with missing quotes around string override values in generated override files
 - Minor fixes and improvements
