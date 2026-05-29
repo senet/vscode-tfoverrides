@@ -6,6 +6,9 @@
     "lib": [
       "es2018"
     ],
+    "types": [
+      "node"
+    ],
     "sourceMap": true,
     "rootDir": "src",
     "strict": true
