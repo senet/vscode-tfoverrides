@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6 - 2026-05-30
+- Removed `node-fetch` dependency — use Node 18 native `fetch` instead
+- Bundle size reduced from 306 KB to 4.8 KB (98% smaller)
+
 ## 0.1.5 - 2026-05-30
 - Extracted shared module (src/shared.ts) — pure types and functions with no vscode dependency
 - Fixed sidebarView type-aware formatting: string values now correctly quoted in overrides

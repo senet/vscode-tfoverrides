@@ -107,7 +107,7 @@ npx vsce publish       # publish to VS Code marketplace (requires VSCE_PAT env v
 | 4.1 | **TypeScript 4.4 → 5.x** | Low |
 | 4.2 | **ESLint + Prettier** (`@typescript-eslint/eslint-plugin`) | Low |
 | 4.3 | **`vscode-test` → `@vscode/test-electron`** | Low |
-| 4.4 | **Remove `node-fetch`** — use Node 18 native `fetch` | Low |
+| 4.4 | ~~**Remove `node-fetch`** — use Node 18 native `fetch`~~ ✓ done v0.1.6 | Low |
 | 4.5 | **`@vscode/webview-ui-toolkit`** in sidebar | Medium |
 | 4.6 | **`tsc --noEmit` in `pretest`** script | Very low |
 
