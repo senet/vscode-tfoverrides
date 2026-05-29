@@ -1,0 +1,35 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+    open-pull-requests-limit: 5
+    groups:
+      typescript-types:
+        patterns:
+          - "@types/*"
+      build-tools:
+        patterns:
+          - webpack
+          - webpack-cli
+          - ts-loader
+          - ts-node
+          - typescript
+      test:
+        patterns:
+          - mocha
+          - "@types/mocha"
+          - glob
+          - "@types/glob"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+    open-pull-requests-limit: 5

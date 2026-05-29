@@ -72,19 +72,44 @@ npx vsce publish       # publish to VS Code marketplace (requires VSCE_PAT env v
 
 ---
 
-## Modernization Roadmap
+## Roadmap
 
-| Priority | Item | Effort |
-|----------|------|--------|
-| High | **Add TypeScript strict type checking to CI** — run `tsc --noEmit` in pretest | Low |
-| High | **Add GitHub Actions CI** — test + typecheck on push/PR | Low |
-| High | **TypeScript 4.4 → 5.x** — improved type narrowing, const enums, decorator metadata | Medium |
-| Medium | **ESLint + Prettier** — add `@typescript-eslint/eslint-plugin` and `.eslintrc.json` | Medium |
-| Medium | **Complete sidebar feature** — add `views`/`viewsContainers` to package.json, integrate `extension_sidePanel.ts`, or delete it if not planned | Medium |
-| Medium | **HCL parser robustness** — handle multi-line variable blocks; consider a tokenizer | High |
-| Low | **`vscode-test` → `@vscode/test-electron`** — `vscode-test` is deprecated | Low |
-| Low | **node-fetch v2 → v3** — requires ESM bundling change in webpack | High |
-| Low | **Provider abstraction** — currently AWS-only; could prompt for provider type | Medium |
+### Phase 1 — Core Gaps (v0.2)
+| # | Item | Notes | Effort |
+|---|------|-------|--------|
+| 1.1 | **Wire sidebar** | `sidebarView.ts` is complete; add `viewsContainers`/`views` to `package.json` and register provider in `extension.ts` | Low |
+| 1.2 | **Multi-cloud provider** | QuickPick: AWS / Azure / GCP / Other; per-provider `generateProviderFile()` in `shared.ts` | Low-med |
+| 1.3 | **File overwrite protection** | `vscode.workspace.fs.stat()` check; prompt Overwrite / Cancel / Merge (overrides-only) | Low |
+| 1.4 | **Terraform Registry URL support** | Resolve `registry.terraform.io` and `<ns>/<mod>/<provider>` source strings via Registry API | Medium |
+| 1.5 | **Non-root `variables.tf` paths** | Try common subdirs on 404; optional path suffix input | Low-med |
+
+### Phase 2 — UX Polish (v0.3–v0.4)
+| # | Item | Notes | Effort |
+|---|------|-------|--------|
+| 2.1 | **File preview before write** | Open generated content as untitled docs; Confirm & Write step | Low |
+| 2.2 | **Recent repos history** | `context.globalState` for last N URLs; pre-populate QuickPick | Low |
+| 2.3 | **Variable grouping** | Required (no default) on top with separator; default shown in `detail` field | Low |
+| 2.4 | **Progress indicators** | `vscode.window.withProgress()` wrapping fetch+parse | Very low |
+| 2.5 | **Sidebar UX** | `@vscode/webview-ui-toolkit` components; loading states; required-variable badges | Medium |
+
+### Phase 3 — Advanced Features (v0.5–v0.6)
+| # | Item | Notes | Effort |
+|---|------|-------|--------|
+| 3.1a | **Multi-line HCL (regex)** | Extend variable regex to handle nested `{}`; quick win | Low |
+| 3.1b | **Full HCL tokenizer** | State-machine tokenizer; handles `object({})`, `tuple([])`, `any`, heredocs | High |
+| 3.2 | **Private GitHub repos** | GitHub token in `SecretStorage`; `Authorization` header; 401 prompt | Medium |
+| 3.3 | **`.tfvars` output option** | Generate `terraform.tfvars` as alternative to `overrides.tf` | Low |
+| 3.4 | **Auto-detect existing modules** | Scan workspace `main.tf` for `source =` blocks; pre-fill URL | Medium |
+
+### Phase 4 — Tech Modernization (ongoing)
+| # | Item | Effort |
+|---|------|--------|
+| 4.1 | **TypeScript 4.4 → 5.x** | Low |
+| 4.2 | **ESLint + Prettier** (`@typescript-eslint/eslint-plugin`) | Low |
+| 4.3 | **`vscode-test` → `@vscode/test-electron`** | Low |
+| 4.4 | **Remove `node-fetch`** — use Node 18 native `fetch` | Low |
+| 4.5 | **`@vscode/webview-ui-toolkit`** in sidebar | Medium |
+| 4.6 | **`tsc --noEmit` in `pretest`** script | Very low |
 
 ---
 
