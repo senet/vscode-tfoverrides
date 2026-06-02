@@ -36,7 +36,7 @@
     "test": "mocha --require ts-node/register 'test/**/*.test.ts'"
   },
   "devDependencies": {
-    "@types/glob": "^8.0.0",
+    "@types/glob": "^9.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "^25.9.1",
     "@types/vscode": "^1.120.0",
