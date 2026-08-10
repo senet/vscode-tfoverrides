@@ -36,12 +36,12 @@
     "test": "mocha --require ts-node/register 'test/**/*.test.ts'"
   },
   "devDependencies": {
-    "@types/glob": "^8.0.0",
+    "@types/glob": "^9.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "^25.9.1",
     "@types/vscode": "^1.120.0",
     "glob": "^13.0.6",
-    "mocha": "^11.7.6",
+    "mocha": "^11.8.0",
     "ts-loader": "^9.6.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3",
